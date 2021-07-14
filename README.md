@@ -1,1 +1,1 @@
-# lib-template
+# lib 开放模版
