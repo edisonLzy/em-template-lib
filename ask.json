@@ -1,0 +1,14 @@
+{
+    "inquirer": [
+      {
+        "name": "name",
+        "type": "input",
+        "message": "请输入库名称"
+      },
+      {
+        "name": "description",
+        "type": "input",
+        "message": "请输入库描述"
+      }
+    ]
+  }

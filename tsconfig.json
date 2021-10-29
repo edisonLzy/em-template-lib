@@ -6,7 +6,6 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "declaration": true,
-    "declarationDir": "./lib/types",
     "module": "CommonJS",
     "outDir": "./lib",
     "strict": true,
@@ -14,10 +13,12 @@
     "target": "ESNext",
     "noImplicitThis": false,
     "baseUrl": "./",
+    "declarationDir": "./types",
+    "emitDeclarationOnly": true,
+    "allowSyntheticDefaultImports": true,
     "paths": {
-      "@/*": ["src/*"]
+      "@/*":["src/*"]
     }
   },
-  "include": ["src/**/*"],
-  "exclude": ["bin/*", ".eslintrc.js","src/plugins/*"]
+  "include": ["src/**/*"]
 }

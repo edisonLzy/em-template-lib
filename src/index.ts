@@ -1,1 +1,1 @@
-console.log('main');
+export { sum } from '@/core';
