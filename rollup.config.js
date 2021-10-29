@@ -5,6 +5,7 @@ import json from '@rollup/plugin-json';
 import commonjs from '@rollup/plugin-commonjs';
 import babel from '@rollup/plugin-babel';
 import cleaner from 'rollup-plugin-cleaner';
+import alias from '@rollup/plugin-alias';
 import { terser } from 'rollup-plugin-terser';
 
 const resolve = (p) => {
@@ -34,6 +35,9 @@ export default defineConfig({
     },
   ],
   plugins: [
+    alias({
+      entries: [{ find: '@', replacement: resolve('src') }],
+    }),
     json(),
     cleaner({
       targets: ['lib', 'es'],
