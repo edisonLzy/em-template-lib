@@ -4,9 +4,8 @@
 
 ## Technology Stack
 
-- 📦 pnpm+babel+tsc+rollup 
-- 🍎 jest
-
+- 📦 pnpm+tsup
+- 🍎 vitest
 
 ## Develop
 
@@ -16,7 +15,7 @@
 npm t -- --watchAll
 ```
 
-- 🚌 use ts-node 
+- 🚌 use ts-node
 
 ```shell
 npm run dev
@@ -28,7 +27,7 @@ npm run dev
 npm t
 ```
 
-## Declaration 
+## Declaration
 
 - 📈 just run build
 
@@ -39,12 +38,12 @@ npm run build
 - 👋 manual yourself
 
 ```shell
-npx tsc 
+npx tsc
 ```
 
 ## Publish
 
-- 😊 
+- 😊
 
 ```shell
 pnpm publish

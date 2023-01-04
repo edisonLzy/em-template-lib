@@ -3,57 +3,48 @@
   "version": "0.0.1",
   "description": "<%= description %>",
   "main": "lib/index.js",
-  "module": "es/index.js",
-  "directories": {
-    "lib": "lib"
+  "typings": "lib/index.d.ts",
+  "engines": {
+    "node": ">=16"
   },
-  "types": "./types",
+  "bin": {
+    "<%= command %>": "./bin/entry.js"
+  },
   "files": [
-    "es",
+    "dist",
+    "bin",
     "lib",
     "types"
   ],
+  "exports": {
+    ".": {
+      "import": "./lib/index.mjs",
+      "require": "./lib/index.js"
+    }
+  },
+  "types": "./types",
   "scripts": {
     "prepare": "husky install",
     "prepublishOnly": "npm run test && npm run build",
-    "build": "rollup -c",
-    "prebuild": "npm run build:type",
-    "build:type": "npx @etools/tsc",
-    "start": "npm run build -- --watch",
-    "test": "jest",
-    "dev": "ts-node -r tsconfig-paths/register ./src/index.ts"
+    "test": "vitest",
+    "coverage": "vitest run --coverage",
+    "build": "tsup",
+    "start": "tsup --watch",
+    "build:cli": "tsup --env.target cli",
+    "build:lib": "tsup --env.target lib"
   },
   "license": "ISC",
   "devDependencies": {
-    "@babel/core": "^7.15.8",
-    "@babel/eslint-parser": "^7.16.0",
-    "@babel/plugin-transform-modules-commonjs": "^7.15.4",
-    "@babel/preset-env": "^7.15.8",
-    "@babel/preset-typescript": "^7.15.0",
     "@commitlint/config-conventional": "^14.1.0",
-    "@rollup/plugin-alias": "^3.1.8",
-    "@rollup/plugin-babel": "^5.3.0",
-    "@rollup/plugin-commonjs": "^21.0.1",
-    "@rollup/plugin-json": "^4.1.0",
-    "@rollup/plugin-node-resolve": "^13.0.6",
-    "@types/jest": "^27.0.2",
-    "@types/rollup": "^0.54.0",
-    "@typescript-eslint/eslint-plugin": "^5.3.0",
-    "@typescript-eslint/parser": "^5.3.0",
+    "@ee-lint/eslint-config-ts": "^0.0.3",
+    "@types/node": "^18.11.18",
     "commitlint": "^14.1.0",
-    "eslint": "^8.1.0",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-prettier": "^4.0.0",
+    "eslint": "^8.31.0",
     "husky": "^7.0.4",
-    "jest": "^27.3.1",
     "lint-staged": "^11.2.6",
-    "prettier": "^2.4.1",
-    "rollup": "^2.58.3",
-    "rollup-plugin-cleaner": "^1.0.0",
-    "rollup-plugin-terser": "^7.0.2",
-    "ts-jest": "^27.0.7",
-    "ts-node": "^10.4.0",
-    "tsconfig-paths": "^3.11.0"
+    "tsup": "^6.5.0",
+    "typescript": "^4.9.4",
+    "vitest": "^0.26.3"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
